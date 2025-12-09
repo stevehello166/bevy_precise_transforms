@@ -9,7 +9,7 @@ use bevy::{
         prelude::{Changed, DetectChanges, Entity, Query, With, Without},
     },
     math::{Affine3A, DAffine3, DVec3, Vec3A},
-    prelude::{Added, Commands, GlobalTransform, Res, ResMut, Transform},
+    prelude::{Added, Commands, GlobalTransform, Res, ResMut, Transform, vec, Vec},
 };
 
 fn daffine_to_f32(affine: &DAffine3) -> Affine3A {
@@ -58,7 +58,8 @@ pub fn sync_f64_f32(
             if let Ok((_, transform, _)) = query_changed.get_mut(e) {
                 transform.translation()
             } else {
-                println!("Entity not found in sync_f64_f32");
+                // errors when the Origin is not found in sync_f64_f32, Idealy should never happen
+                // Maybe should be converted to a panic?
                 DVec3::ZERO
             }
         }

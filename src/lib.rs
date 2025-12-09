@@ -1,3 +1,5 @@
+#![no_std]
+
 use bevy::{ecs::schedule::ScheduleLabel, math::*, prelude::*};
 
 pub mod commands;
