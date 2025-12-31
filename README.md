@@ -1,8 +1,9 @@
-# bevy_transform64
+# bevy_precise_transforms
 A 64-bit version of Bevy Transform that enhances precision and minimizes floating-point errors in large-scale projects. This custom implementation substitutes Transform with DTransform and GlobalTransform with DGlobalTransform. The original GlobalTransform is retained for rendering purposes.
+# This is a fork of bevy_transform64 by rewin123
 
 # Usage
-To integrate Bevy Transform64 into your project, follow these steps:
+To integrate Bevy Precise Transforms into your project, follow these steps:
 
 1. Add DTransformPlugin to your Bevy app:
 
@@ -40,7 +41,7 @@ Here's an example demonstrating how to use Bevy Transform64:
 ``` rust
 
 use bevy::{prelude::*, math::DVec3};
-use bevy_transform64::{prelude::*, WorldOrigin};
+use bevy_precise_transforms::{prelude::*, WorldOrigin};
 
 fn main() {
     App::new()
