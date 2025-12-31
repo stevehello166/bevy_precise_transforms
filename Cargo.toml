@@ -1,5 +1,5 @@
 [package]
-name = "bevy_transform64"
+name = "bevy_precise_transforms"
 version = "0.1.0"
 edition = "2021"
 
