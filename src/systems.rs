@@ -58,7 +58,8 @@ pub fn sync_f64_f32(
             if let Ok((_, transform, _)) = query_changed.get_mut(e) {
                 transform.translation()
             } else {
-                println!("Entity not found in sync_f64_f32");
+                // errors when the Origin is not found in sync_f64_f32, Idealy should never happen
+                // Maybe should be converted to a panic?
                 DVec3::ZERO
             }
         }
@@ -287,6 +288,7 @@ pub fn convert_world_origin(
 mod test {
     use bevy::app::prelude::*;
     use bevy::ecs::prelude::*;
+    use bevy::prelude::{vec, Vec};
     use bevy::math::dvec3;
 
     use crate::components::{DGlobalTransform, DTransform};
@@ -296,6 +298,7 @@ mod test {
         entity::EntityRow,
         hierarchy::{ChildOf, Children},
         world::CommandQueue,
+        
     };
 
     #[test]

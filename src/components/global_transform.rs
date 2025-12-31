@@ -1,4 +1,4 @@
-use std::ops::Mul;
+use core::ops::Mul;
 
 use bevy::math::*;
 use bevy::prelude::*;
@@ -19,13 +19,13 @@ impl Default for DGlobalTransform {
 
 macro_rules! impl_local_axis {
     ($pos_name: ident, $neg_name: ident, $axis: ident) => {
-        #[doc=std::concat!("Return the local ", std::stringify!($pos_name), " vector (", std::stringify!($axis) ,").")]
+        #[doc=concat!("Return the local ", stringify!($pos_name), " vector (", stringify!($axis) ,").")]
         #[inline]
         pub fn $pos_name(&self) -> DVec3 {
             (self.0.matrix3 * DVec3::$axis).normalize()
         }
 
-        #[doc=std::concat!("Return the local ", std::stringify!($neg_name), " vector (-", std::stringify!($axis) ,").")]
+        #[doc=concat!("Return the local ", stringify!($neg_name), " vector (-", stringify!($axis) ,").")]
         #[inline]
         pub fn $neg_name(&self) -> DVec3 {
             -self.$pos_name()
